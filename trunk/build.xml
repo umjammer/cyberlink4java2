@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!-- ////////////////////////////////////////////////////////////////////// -->
+<!-- Copyright (c) 2004 by Naohide Sano, All rights reserved.               -->
+<!--                                                                        -->
+<!-- Written by Naohide Sano                                                -->
+<!--                                                                        -->
+<!-- cyberlink                                                              -->
+<!--                                                                        -->
+<!-- @author	Naohide Sano                                                -->
+<!-- @version	0.00	040801	nsano	initial version                     -->
+<!--                                                                        -->
+<!-- ////////////////////////////////////////////////////////////////////// -->
+
+<project default="compile" basedir=".">
+
+  <property file="local.properties" />
+
+  <!-- クラスパスの定義 -->
+  <path id="project.class.path">
+    <pathelement location="build" />
+    <fileset dir="lib">
+      <include name="*.jar" />
+    </fileset>
+    <fileset dir="${maven.repo}">
+      <include name="servletapi/jars/servletapi-2.3.jar" />
+      <include name="axis/axis-saaj/1.2.1/axis-saaj-1.2.1.jar" />
+      <include name="axis/axis-jaxrpc/1.2.1/axis-jaxrpc-1.2.1.jar" />
+      <include name="axis/axis/1.2.1/axis-1.2.1.jar" />
+    </fileset>
+    <pathelement location="/home/nsano/src/vavi/java" />
+    <pathelement location="/home/nsano/src/vavi/java/test/999/build" />
+    <pathelement location="/home/nsano/src/vavi/java/test/108/src" />
+  </path>
+
+  <!-- ターゲットの定義 -->
+
+  <!-- clean -->
+  <target name="clean" description="ビルド環境のクリア">
+    <delete dir="build"/>
+    <delete>
+      <fileset dir="sample">
+        <include name="**/*.class" />
+      </fileset>
+    </delete>
+  </target>
+
+  <!-- prepare -->
+  <target name="prepare" description="ビルド環境の準備">
+    <mkdir dir="build" />
+  </target>
+
+  <!-- javac -->
+  <target name="compile" depends="prepare" description="コンパイル">
+    <javac debug="on" deprecation="on" destdir="build">
+      <classpath refid="project.class.path" />
+      <include name="**/*.java" />
+      <src path="src/java" />
+    </javac>
+          
+    <copy todir="build">
+      <fileset dir="src/java">
+        <include name="**/*.properties" />
+      </fileset>
+    </copy>
+  </target>
+
+  <!-- javac.sample -->
+  <target name="compile.sample" depends="compile" description="compile sample">
+    <javac debug="on" deprecation="on">
+      <classpath refid="project.class.path" />
+      <include name="**/*.java" />
+      <src path="sample/${sample}" />
+    </javac>
+  </target>
+
+  <!-- javac.mediagate -->
+  <target name="compile.mediagate" depends="compile"
+          description="compile sample">
+    <javac debug="on" deprecation="on" destdir="build">
+      <classpath refid="project.class.path" />
+      <include name="**/*.java" />
+      <src path="src/mediagate" />
+    </javac>
+  </target>
+
+  <!-- aircon -->
+  <target name="aircon" depends="compile.sample" description="test aircon">
+    <java classname="AirconFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/aircon" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- clock -->
+  <target name="clock" depends="compile.sample" description="test clock">
+    <java classname="ClockFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/clock" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- controlpoint -->
+  <target name="controlpoint" depends="compile.sample"
+          description="test controlpoint">
+    <java classname="CtrlPoint" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/controlpoint" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- controlpoint.debug -->
+  <target name="controlpoint.debug" depends="compile.sample"
+          description="test controlpoint">
+    <java classname="CtrlPoint" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/controlpoint" />
+      </classpath>
+    </java>
+  </target>
+
+    <!-- light -->
+  <target name="light" depends="compile.sample" description="test light">
+    <java classname="LightFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/light" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- remotectrl -->
+  <target name="remotectrl" depends="compile.sample"
+          description="test remotectrl">
+    <java classname="RemoteCtrlFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/remotectrl" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- tv -->
+  <target name="tv" depends="compile.sample" description="test tv">
+    <java classname="TvFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/tv" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- washer -->
+  <target name="washer" depends="compile.sample" description="test washer">
+    <java classname="WasherFrame" fork="yes">
+      <classpath>
+        <path refid="project.class.path" />
+        <pathelement location="sample/washer" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- mediagate -->
+  <target name="mediagate" depends="compile.sample"
+          description="test mediagate">
+    <java classname="org.cybergarage.mediagate.MediaGate" fork="yes">
+      <classpath refid="project.class.path" />
+    </java>
+  </target>
+
+  <!-- apt -->
+  <target name="apt" depends="" description="annotation">
+    <path id="apt.class.path">
+      <path refid="project.class.path" />
+      <pathelement location="sample/light2/src/apt" />
+    </path>
+    <fileset id="source.fileset" dir="sample/light2/src/java">
+      <include name="*.java" />
+    </fileset>
+    <pathconvert pathsep=" " property="sourcefiles" refid="source.fileset"/>
+    <exec executable="apt">
+      <arg value="-s"/>
+      <arg value="sample/light2/src/generated"/>
+      <arg value="-classpath"/>
+      <arg pathref="apt.class.path"/>
+      <arg value="-nocompile"/>
+      <arg value="-factory"/>
+      <arg value="vavi.util.annotation.ListClassApf"/>
+      <arg line="${sourcefiles}"/>
+    </exec>
+  </target>
+
+</project>
+
+<!-- -->

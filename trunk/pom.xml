@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>vavi</groupId>
+  <artifactId>vavi-net-upnp</artifactId>
+  <packaging>jar</packaging>
+  <name>Cyberlink for Java</name>
+  <organization>
+    <name></name>
+  </organization>
+  <version>1.1.0</version>
+  <url>http://www.cybergarage.org/net/upnp/java/index.html</url>
+  <description>Java UPnP implementation</description>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>6</source>
+          <target>6</target>
+          <encoding>Windows-31J</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>servlet-api</artifactId>
+  		<version>2.4</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>vavi</groupId>
+  		<artifactId>vavi-commons</artifactId>
+  		<version>1.0.0</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>vavi</groupId>
+  		<artifactId>vavi-commons-net</artifactId>
+  		<version>1.0.0</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-logging</groupId>
+  		<artifactId>commons-logging</artifactId>
+  		<version>1.1.1</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-dbutils</groupId>
+  		<artifactId>commons-dbutils</artifactId>
+  		<version>1.1-dev</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>vavi</groupId>
+  		<artifactId>vavi-commons-sandbox</artifactId>
+  		<version>0.3.0</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>vavi</groupId>
+  		<artifactId>vavi-util-screenscraping</artifactId>
+  		<version>1.0.0</version>
+  		<optional>false</optional>
+  	</dependency>
+  </dependencies>
+</project>
