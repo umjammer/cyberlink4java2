@@ -12,54 +12,45 @@
 <!--                                                                        -->
 <!-- ////////////////////////////////////////////////////////////////////// -->
 
-<project default="compile" basedir=".">
+<project default="compile" basedir="."
+         xmlns:ivy="antlib:org.apache.ivy.ant">
 
   <property file="local.properties" />
+  <property name="dir.build" value="target/classes"/>
 
   <!-- クラスパスの定義 -->
   <path id="project.class.path">
-    <pathelement location="build" />
+    <pathelement location="${dir.build}" />
     <fileset dir="lib">
       <include name="*.jar" />
     </fileset>
-    <fileset dir="${maven.repo}">
-      <include name="servletapi/jars/servletapi-2.3.jar" />
-      <include name="axis/axis-saaj/1.2.1/axis-saaj-1.2.1.jar" />
-      <include name="axis/axis-jaxrpc/1.2.1/axis-jaxrpc-1.2.1.jar" />
-      <include name="axis/axis/1.2.1/axis-1.2.1.jar" />
-    </fileset>
-    <pathelement location="/home/nsano/src/vavi/java" />
-    <pathelement location="/home/nsano/src/vavi/java/test/999/build" />
-    <pathelement location="/home/nsano/src/vavi/java/test/108/src" />
   </path>
 
   <!-- ターゲットの定義 -->
 
   <!-- clean -->
   <target name="clean" description="ビルド環境のクリア">
-    <delete dir="build"/>
-    <delete>
-      <fileset dir="sample">
-        <include name="**/*.class" />
-      </fileset>
-    </delete>
+    <delete dir="${dir.build}" failonerror="false" />
   </target>
 
   <!-- prepare -->
   <target name="prepare" description="ビルド環境の準備">
-    <mkdir dir="build" />
+    <mkdir dir="${dir.build}" />
+    <ivy:settings file="ivy-settings.xml" />
+    <ivy:convertpom pomFile="pom.xml" ivyFile="ivy.xml" />
+    <ivy:retrieve />
   </target>
 
   <!-- javac -->
   <target name="compile" depends="prepare" description="コンパイル">
-    <javac debug="on" deprecation="on" destdir="build">
+    <javac debug="on" deprecation="on" destdir="${dir.build}">
       <classpath refid="project.class.path" />
       <include name="**/*.java" />
-      <src path="src/java" />
+      <src path="src/main/java" />
     </javac>
           
-    <copy todir="build">
-      <fileset dir="src/java">
+    <copy todir="${dir.build}">
+      <fileset dir="src/main/resources">
         <include name="**/*.properties" />
       </fileset>
     </copy>
@@ -70,17 +61,17 @@
     <javac debug="on" deprecation="on">
       <classpath refid="project.class.path" />
       <include name="**/*.java" />
-      <src path="sample/${sample}" />
+      <src path="src/sample/java" />
     </javac>
   </target>
 
   <!-- javac.mediagate -->
   <target name="compile.mediagate" depends="compile"
           description="compile sample">
-    <javac debug="on" deprecation="on" destdir="build">
+    <javac debug="on" deprecation="on" destdir="${dir.build}">
       <classpath refid="project.class.path" />
       <include name="**/*.java" />
-      <src path="src/mediagate" />
+      <src path="src/mediagate/java" />
     </javac>
   </target>
 
@@ -99,7 +90,7 @@
     <java classname="ClockFrame" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/clock" />
+        <pathelement location="src/samples/resources/clock" />
       </classpath>
     </java>
   </target>
@@ -110,7 +101,7 @@
     <java classname="CtrlPoint" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/controlpoint" />
+        <pathelement location="src/samples/resources/controlpoint" />
       </classpath>
     </java>
   </target>
@@ -121,17 +112,17 @@
     <java classname="CtrlPoint" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/controlpoint" />
+        <pathelement location="src/samples/resources/controlpoint" />
       </classpath>
     </java>
   </target>
 
-    <!-- light -->
+  <!-- light -->
   <target name="light" depends="compile.sample" description="test light">
     <java classname="LightFrame" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/light" />
+        <pathelement location="src/samples/resources/light" />
       </classpath>
     </java>
   </target>
@@ -142,7 +133,7 @@
     <java classname="RemoteCtrlFrame" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/remotectrl" />
+        <pathelement location="src/samples/resources/remotectrl" />
       </classpath>
     </java>
   </target>
@@ -152,7 +143,7 @@
     <java classname="TvFrame" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/tv" />
+        <pathelement location="src/samples/resources/tv" />
       </classpath>
     </java>
   </target>
@@ -162,7 +153,7 @@
     <java classname="WasherFrame" fork="yes">
       <classpath>
         <path refid="project.class.path" />
-        <pathelement location="sample/washer" />
+        <pathelement location="src/samples/resources/washer" />
       </classpath>
     </java>
   </target>
@@ -179,9 +170,9 @@
   <target name="apt" depends="" description="annotation">
     <path id="apt.class.path">
       <path refid="project.class.path" />
-      <pathelement location="sample/light2/src/apt" />
+      <pathelement location="src/samples/apt" />
     </path>
-    <fileset id="source.fileset" dir="sample/light2/src/java">
+    <fileset id="source.fileset" dir="src/samples/apt">
       <include name="*.java" />
     </fileset>
     <pathconvert pathsep=" " property="sourcefiles" refid="source.fileset"/>
