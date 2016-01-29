@@ -1,0 +1,6 @@
+tmp
+lib
+.checkstyle
+.djunitplugin
+.externalToolBuilders
+.hibernateSynchronizer

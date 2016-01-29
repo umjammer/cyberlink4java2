@@ -43,7 +43,7 @@ import vavi.util.Debug;
  */
 public class Action {
 
-    /** Š‘®‚·‚éƒT[ƒrƒX */
+    /** æ‰€å±ã™ã‚‹ã‚µãƒ¼ãƒ“ã‚¹ */
     private Service service;
 
     public Service getService() {
@@ -68,10 +68,10 @@ public class Action {
         return name;
     }
 
-    /** ˆø”‚ÌƒŠƒXƒg */
+    /** å¼•æ•°ã®ãƒªã‚¹ãƒˆ */
     protected List<Argument> argumentList = new ArrayList<Argument>();
 
-    /** ˆø”‚ÌƒŠƒXƒg‚ğæ“¾‚µ‚Ü‚·B */
+    /** å¼•æ•°ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã—ã¾ã™ã€‚ */
     public List<Argument> getArgumentList() {
         return argumentList;
     }

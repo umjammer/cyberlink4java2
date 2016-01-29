@@ -683,8 +683,8 @@ Debug.println("called against not root");
     }
 
     /**
-     * {@link Service#getSID()} ‚ª uuid ‚Ìw“Ç’†‚ÌƒT[ƒrƒX‚ğæ“¾‚µ‚Ü‚·B
-     * {@link #childDevices} ‚©‚ç‚àŒŸõ‚µ‚Ü‚·B 
+     * {@link Service#getSID()} ãŒ uuid ã®è³¼èª­ä¸­ã®ã‚µãƒ¼ãƒ“ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
+     * {@link #childDevices} ã‹ã‚‰ã‚‚æ¤œç´¢ã—ã¾ã™ã€‚ 
      * @return null when not found
      */
     public Service getSubscriberService(String uuid) {
@@ -1173,7 +1173,7 @@ Debug.println("bad callback url: " + callback);
 //Debug.println(response);
             HttpUtil.postResponse(response);
 
-            // TODO ‚±‚±‚ÅƒGƒ‰[‚ª‹N‚«‚é‚Æã‹LƒŒƒXƒ|ƒ“ƒX + ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚É‚È‚é
+            // TODO ã“ã“ã§ã‚¨ãƒ©ãƒ¼ãŒèµ·ãã‚‹ã¨ä¸Šè¨˜ãƒ¬ã‚¹ãƒãƒ³ã‚¹ + ã‚¨ãƒ©ãƒ¼ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«ãªã‚‹
             service.doNotifyAll();
         }
 
