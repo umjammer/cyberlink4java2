@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: 1.4.1_02 (Sun Microsystems Inc.)
+Main-Class: org.cybergarage.mediagate.MediaGate
+
