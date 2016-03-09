@@ -59,7 +59,7 @@ public class SsdpRequest extends SsdpContext {
                 HttpUtil.parseRequestHeader(is, this);
             }
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

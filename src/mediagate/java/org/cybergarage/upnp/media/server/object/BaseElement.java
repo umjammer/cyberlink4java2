@@ -52,10 +52,10 @@ public class BaseElement implements Element {
     protected String nodeValue;
 
     /** */
-    protected List<Node> childNodes = new ArrayList<Node>();
+    protected List<Node> childNodes = new ArrayList<>();
 
     /** */
-    protected Map<String, Attr> attributes = new HashMap<String, Attr>();
+    protected Map<String, Attr> attributes = new HashMap<>();
 
     /** */
     private class MyAttr extends BaseElement implements Attr {
@@ -339,7 +339,7 @@ public class BaseElement implements Element {
     }
 
     /** */
-    private Map<String, Object> features = new HashMap<String, Object>();
+    private Map<String, Object> features = new HashMap<>();
 
     /* */
     public Object getFeature(String feature, String version) {
@@ -347,7 +347,7 @@ public class BaseElement implements Element {
     }
 
     /** */
-    private Map<String, Object> userData = new HashMap<String, Object>();
+    private Map<String, Object> userData = new HashMap<>();
 
     /* TODO handler */
     public Object setUserData(String key, Object data, UserDataHandler handler) {

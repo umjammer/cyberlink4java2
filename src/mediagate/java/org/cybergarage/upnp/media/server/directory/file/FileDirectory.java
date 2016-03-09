@@ -135,7 +135,7 @@ public class FileDirectory extends Directory {
     }
 
     private List<FileItemNode> getCurrentDirectoryItemNodeList() {
-        List<FileItemNode> itemNodeList = new ArrayList<FileItemNode>();
+        List<FileItemNode> itemNodeList = new ArrayList<>();
         String path = getPath();
         File pathFile = new File(path);
         getDirectoryItemNodeList(pathFile, itemNodeList);

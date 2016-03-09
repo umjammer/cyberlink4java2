@@ -57,7 +57,7 @@ public class MythDAO {
     @SuppressWarnings("unchecked")
     public MythRecordedInfo[] getRecordedInfos() throws SQLException {
 
-        List<MythRecordedInfo> recVec = new ArrayList<MythRecordedInfo>();
+        List<MythRecordedInfo> recVec = new ArrayList<>();
 
         Connection connection = null;
 

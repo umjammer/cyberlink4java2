@@ -47,7 +47,7 @@ public class DefaultFormat implements Format, FormatObject {
     }
 
     public List<Attr> getAttributeList() {
-        return new ArrayList<Attr>();
+        return new ArrayList<>();
     }
 
     public String getTitle() {

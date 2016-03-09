@@ -64,7 +64,7 @@ public class ServicePane extends JPanel {
 //System.err.println("--------");
             serviceTable = new TableModel(node);
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
         JScrollPane scrollPane = new JScrollPane();
         JTable table = new JTable(serviceTable);

@@ -104,7 +104,7 @@ public class ConnectionManager {
      * ConnectionInfoList
      * Thanks for Brian Owens (12/02/04)
      */
-    private List<ConnectionInfo> connectionInfoList = new ArrayList<ConnectionInfo>();;
+    private List<ConnectionInfo> connectionInfoList = new ArrayList<>();
 
     public List<ConnectionInfo> getConnectionInfoList() {
         return connectionInfoList;

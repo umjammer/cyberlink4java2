@@ -72,7 +72,7 @@ public class QueryRequest extends ControlRequest {
             bodyNode.addChildElement(queryVariableNode);
 
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

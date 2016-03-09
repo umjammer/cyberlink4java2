@@ -87,7 +87,7 @@ public abstract class ContentNode extends BaseElement {
     }
 
     // Property (Basic)
-    private List<Property> propList = new ArrayList<Property>();
+    private List<Property> propList = new ArrayList<>();
 
     public int getNProperties() {
         return propList.size();

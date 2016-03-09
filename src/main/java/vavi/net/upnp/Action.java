@@ -69,7 +69,7 @@ public class Action {
     }
 
     /** 引数のリスト */
-    protected List<Argument> argumentList = new ArrayList<Argument>();
+    protected List<Argument> argumentList = new ArrayList<>();
 
     /** 引数のリストを取得します。 */
     public List<Argument> getArgumentList() {
@@ -96,7 +96,7 @@ Debug.println("Argument added: " + targetArgument.getName() + ", " + targetArgum
 
     /** */
     public List<Argument> getInputArgumentList() {
-        List<Argument> resultArgumentList = new ArrayList<Argument>();
+        List<Argument> resultArgumentList = new ArrayList<>();
         for (Argument argment : argumentList) {
             if (!argment.isInDirection()) {
                 continue;
@@ -108,7 +108,7 @@ Debug.println("Argument added: " + targetArgument.getName() + ", " + targetArgum
 
     /** */
     public List<Argument> getOutputArgumentList() {
-        List<Argument> resultArgumentList = new ArrayList<Argument>();
+        List<Argument> resultArgumentList = new ArrayList<>();
         for (Argument argument : argumentList) {
             if (!argument.isOutDirection()) {
                 continue;

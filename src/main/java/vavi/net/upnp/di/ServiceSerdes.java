@@ -127,7 +127,7 @@ Debug.println("could not get scpd");
             // TODO userData
     
         } catch (XPathExpressionException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         } catch (SAXException e) {
             throw (RuntimeException) new IllegalArgumentException().initCause(e); // TODO
         }

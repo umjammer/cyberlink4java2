@@ -27,15 +27,15 @@ public class DirectoryPane extends JPanel {
 
     private JScrollPane scrPane;
 
-    private JList dirList;
+    private JList<String> dirList;
 
-    private DefaultListModel dirListMode;
+    private DefaultListModel<String> dirListMode;
 
     // Constructor
 
     public DirectoryPane(MediaGate mgate) {
-        dirListMode = new DefaultListModel();
-        dirList = new JList(dirListMode);
+        dirListMode = new DefaultListModel<>();
+        dirList = new JList<>(dirListMode);
 
         scrPane = new JScrollPane();
         scrPane.getViewport().setView(dirList);
@@ -47,7 +47,7 @@ public class DirectoryPane extends JPanel {
 
     // ActionListener
 
-    public JList getList() {
+    public JList<String> getList() {
         return dirList;
     }
 

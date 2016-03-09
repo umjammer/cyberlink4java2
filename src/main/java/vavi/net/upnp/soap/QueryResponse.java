@@ -68,7 +68,7 @@ public class QueryResponse extends ControlResponse {
             bodyNode.addChildElement(queryResponseNode);
 
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

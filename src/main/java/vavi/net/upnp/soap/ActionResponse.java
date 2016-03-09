@@ -123,7 +123,7 @@ public class ActionResponse extends ControlResponse {
     //----
 
     /** */
-    private List<Argument> argumentList = new ArrayList<Argument>();
+    private List<Argument> argumentList = new ArrayList<>();
 
     /** (for client) */
     public List<Argument> getArgumentList() {

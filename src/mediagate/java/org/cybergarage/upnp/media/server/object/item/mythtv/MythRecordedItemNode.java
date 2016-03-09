@@ -86,8 +86,10 @@ public class MythRecordedItemNode extends ItemNode {
         String protocol = ConnectionManager.HTTP_GET + ":*:" + MIME_TYPE + ":*";
         String id = getID();
         String url = getContentDirectory().getContentExportURL(id);
+        @SuppressWarnings("unused")
         List<Attr> attrList = new ArrayList<Attr>(); // TODO below
         Document document = Util.getDocumentBuilder().newDocument();
+        @SuppressWarnings("unused")
         Attr attr = document.createAttributeNS(ItemNode.SIZE, Long.toString(fileSize));
         setResource(url, protocol);
     }

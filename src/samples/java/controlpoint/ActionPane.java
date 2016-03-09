@@ -66,7 +66,7 @@ public class ActionPane extends JPanel {
 //System.err.println("--------");
             actionTable = new TableModel(node);
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
         JScrollPane scrollPane = new JScrollPane();
         JTable table = new JTable(actionTable);

@@ -144,7 +144,7 @@ Debug.println("description: " + description);
 
         Device device = new Device(UPnPFactory.class.getResource(description));
 
-        Map<String, StateVariable> stateValiavles = new HashMap<String, StateVariable>();
+        Map<String, StateVariable> stateValiavles = new HashMap<>();
         //
         for (Field field : bean.getClass().getDeclaredFields()) {
             UPnPStateVariable stateVariableAnnotation = field.getAnnotation(UPnPStateVariable.class);

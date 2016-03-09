@@ -82,7 +82,7 @@ Debug.println("--- Disposer stopped");
 
     /** */
     private void removeExpiredDevices() {
-        List<Device> copiedDeviceList = new ArrayList<Device>(controlPoint.getDeviceList());
+        List<Device> copiedDeviceList = new ArrayList<>(controlPoint.getDeviceList());
         for (Device device : copiedDeviceList) {
             if (device.isExpired()) {
 Debug.println("Expired device: " + device.getFriendlyName());

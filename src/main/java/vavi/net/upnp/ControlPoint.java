@@ -99,10 +99,10 @@ public class ControlPoint {
     private final static String DEFAULT_EVENTSUB_URI = "/eventSub";
 
     /** Member */
-    private List<NotifyReceiver> notifyReceiverList = new ArrayList<NotifyReceiver>();
+    private List<NotifyReceiver> notifyReceiverList = new ArrayList<>();
 
     /** */
-    private List<SearchResponseReceiver> searchResponseReceiverList = new ArrayList<SearchResponseReceiver>();
+    private List<SearchResponseReceiver> searchResponseReceiverList = new ArrayList<>();
 
     /** Constructor */
     public ControlPoint(int ssdpPort, int httpPort) {
@@ -143,7 +143,7 @@ public class ControlPoint {
     }
 
     /** Device List */
-    private List<Device> deviceList = new ArrayList<Device>();
+    private List<Device> deviceList = new ArrayList<>();
 
     /** */
     private String getUDN(String usnValue) {

@@ -174,7 +174,7 @@ public class ContentDirectory extends HttpServlet {
 
     // Format
 
-    private List<Format> formatList = new ArrayList<Format>();
+    private List<Format> formatList = new ArrayList<>();
 
     public void addPlugIn(Format format) {
         formatList.add(format);
@@ -210,7 +210,7 @@ Debug.println("formatList: " + formatList.size());
 //    }
 
     // SortCap
-    private List<Comparator<ContentNode>> sortCapList = new ArrayList<Comparator<ContentNode>>();
+    private List<Comparator<ContentNode>> sortCapList = new ArrayList<>();
 
     public void addSortCap(Comparator<ContentNode> sortCap) {
         sortCapList.add(sortCap);
@@ -251,7 +251,7 @@ Debug.println("formatList: " + formatList.size());
     }
 
     // SearchCap
-    private List<SearchCap> searchCapList = new ArrayList<SearchCap>();
+    private List<SearchCap> searchCapList = new ArrayList<>();
 
     public void addSearchCap(SearchCap searchCap) {
         searchCapList.add(searchCap);
@@ -296,7 +296,7 @@ Debug.println("formatList: " + formatList.size());
 
     // Directory
 
-    private List<Directory> directryList = new ArrayList<Directory>();
+    private List<Directory> directryList = new ArrayList<>();
 
     private List<Directory> getDirectoryList() {
         return directryList;
@@ -436,7 +436,7 @@ Debug.println("formatList: " + formatList.size());
     }
 
     private String[] getSortCriteriaArray(String sortCriteria) {
-        List<String> sortCriList = new ArrayList<String>();
+        List<String> sortCriList = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(sortCriteria, ", ");
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
@@ -478,7 +478,7 @@ Debug.println("formatList: " + formatList.size());
             sortContentNodeList(conNode, sortCap, ascSeq);
         }
 
-        List<ContentNode> sortedContentNodeList = new ArrayList<ContentNode>();
+        List<ContentNode> sortedContentNodeList = new ArrayList<>();
         for (int n = 0; n < nChildNodes; n++)
             sortedContentNodeList.add(conNode[n]);
         return sortedContentNodeList;
@@ -491,7 +491,7 @@ Debug.println("formatList: " + formatList.size());
         if (node == null)
             return false;
 
-        List<ContentNode> contentNodeList = new ArrayList<ContentNode>();
+        List<ContentNode> contentNodeList = new ArrayList<>();
         int nChildNodes = node.getChildNodes().getLength();
         for (int n = 0; n < nChildNodes; n++) {
             ContentNode cnode = (ContentNode) node.getChildNodes().item(n);
@@ -528,7 +528,7 @@ Debug.println("formatList: " + formatList.size());
 
     // Search
     private List<SearchCriteria> getSearchCriteriaList(String searchStr) {
-        List<SearchCriteria> searchList = new ArrayList<SearchCriteria>();
+        List<SearchCriteria> searchList = new ArrayList<>();
 
         if (searchStr == null)
             return searchList;
@@ -581,7 +581,7 @@ Debug.println("formatList: " + formatList.size());
         }
 
         // Eval only logical ADD operation at first;
-        List<SearchCriteria> orSearchCriList = new ArrayList<SearchCriteria>();
+        List<SearchCriteria> orSearchCriList = new ArrayList<>();
         for (n = 0; n < searchCriCnt; n++) {
             SearchCriteria currSearchCri = searchCriList.get(n);
             if (n < (searchCriCnt - 1)) {
@@ -633,7 +633,7 @@ Debug.println("formatList: " + formatList.size());
         List<SearchCap> searchCapList = getSearchCapList();
 
         int n;
-        List<ContentNode> contentNodeList = new ArrayList<ContentNode>();
+        List<ContentNode> contentNodeList = new ArrayList<>();
         int nChildNodes = node.getChildNodes().getLength();
         for (n = 0; n < nChildNodes; n++) {
             ContentNode cnode = (ContentNode) node.getChildNodes().item(n);

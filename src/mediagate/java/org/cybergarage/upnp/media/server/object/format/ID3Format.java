@@ -48,7 +48,7 @@ public class ID3Format extends Header implements Format, FormatObject {
 
     private byte[] frameHeader = new byte[FRAME_HEADER_SIZE];
 
-    private Map<String, ID3Frame> frameList = new HashMap<String, ID3Frame>();
+    private Map<String, ID3Frame> frameList = new HashMap<>();
 
     private File mp3File;
 
@@ -240,7 +240,7 @@ public class ID3Format extends Header implements Format, FormatObject {
 
     // TODO check owner document
     public List<Attr> getAttributeList() {
-        List<Attr> attrList = new ArrayList<Attr>();
+        List<Attr> attrList = new ArrayList<>();
         Document document = Util.getDocumentBuilder().newDocument();
 
         // Size

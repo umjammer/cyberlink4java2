@@ -69,7 +69,7 @@ public class MPEGFormat implements Format, FormatObject {
 
     // TODO check owner document
     public List<Attr> getAttributeList() {
-        List<Attr> attrList = new ArrayList<Attr>();
+        List<Attr> attrList = new ArrayList<>();
         Document document = Util.getDocumentBuilder().newDocument();
 
         try {

@@ -154,7 +154,7 @@ Debug.println("uri = " + uri);
                 return;
             }
     
-            // TODO ���܂����₼�A�q���ɐe�̎d�l��������Ȃ��...
+            // TODO いまいちやぞ、子供に親の仕様を強いるなんて...
             MediaServer.super.httpRequestListener.doService(request, response);
         }
     };

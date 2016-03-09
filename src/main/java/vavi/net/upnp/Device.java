@@ -539,7 +539,7 @@ Debug.println("called against not root");
     //----
 
     /** deviceList */
-    private List<Device> childDevices = new ArrayList<Device>();
+    private List<Device> childDevices = new ArrayList<>();
 
     /** deviceList */
     public List<Device> getChildDevices() {
@@ -595,7 +595,7 @@ Debug.println("called against not root");
     }
 
     /** serviceList */
-    private List<Service> serviceList = new ArrayList<Service>();
+    private List<Service> serviceList = new ArrayList<>();
 
     /** serviceList */
     public List<Service> getServiceList() {
@@ -769,7 +769,7 @@ Debug.println("called against not root");
     }
 
     /** */
-    private List<Icon> iconList = new ArrayList<Icon>();
+    private List<Icon> iconList = new ArrayList<>();
 
     /** iconList */
     public List<Icon> getIconList() {
@@ -977,6 +977,7 @@ Debug.print("--- DO GET: " + uri);
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     return;
                 }
+                @SuppressWarnings("resource")
                 FileChannel inputChannel = new FileInputStream(docFile).getChannel();
                 WritableByteChannel outputChannel = Channels.newChannel(os);
 
@@ -1223,7 +1224,7 @@ Debug.println("no subscriber: " + sid);
     // Servers
 
     /** SearchReceivers */
-    private List<SearchReceiver> searchReceiverList = new ArrayList<SearchReceiver>();
+    private List<SearchReceiver> searchReceiverList = new ArrayList<>();
 
     /** */
     private HttpServer httpServer;

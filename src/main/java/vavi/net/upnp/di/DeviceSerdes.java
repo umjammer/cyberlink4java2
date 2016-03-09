@@ -185,7 +185,7 @@ public class DeviceSerdes extends Singleton implements Serdes<Device, InputStrea
 //Debug.println("Device [" + n + "]: " + childDevice.getFriendlyName());
             }
         } catch (XPathExpressionException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

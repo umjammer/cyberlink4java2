@@ -207,7 +207,7 @@ Debug.printStackTrace(e);
             return;
         }
 
-        String dirStr = (String) dirPane.getList().getSelectedValue();
+        String dirStr = dirPane.getList().getSelectedValue();
 
         int ret = JOptionPane.showConfirmDialog(frame, "Are you delete the selected directory (" + dirStr + ") ?", TITLE, JOptionPane.YES_NO_OPTION);
 

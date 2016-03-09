@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Shift_JIS"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <!-- ////////////////////////////////////////////////////////////////////// -->
 <!-- Copyright (c) 2004 by Naohide Sano, All rights reserved.               -->
@@ -18,7 +18,7 @@
   <property file="local.properties" />
   <property name="dir.build" value="target/classes"/>
 
-  <!-- �N���X�p�X�̒�` -->
+  <!-- クラスパスの定義 -->
   <path id="project.class.path">
     <pathelement location="${dir.build}" />
     <fileset dir="lib">
@@ -26,15 +26,15 @@
     </fileset>
   </path>
 
-  <!-- �^�[�Q�b�g�̒�` -->
+  <!-- ターゲットの定義 -->
 
   <!-- clean -->
-  <target name="clean" description="�r���h���̃N���A">
+  <target name="clean" description="ビルド環境のクリア">
     <delete dir="${dir.build}" failonerror="false" />
   </target>
 
   <!-- prepare -->
-  <target name="prepare" description="�r���h���̏���">
+  <target name="prepare" description="ビルド環境の準備">
     <mkdir dir="${dir.build}" />
     <ivy:settings file="ivy-settings.xml" />
     <ivy:convertpom pomFile="pom.xml" ivyFile="ivy.xml" />
@@ -42,7 +42,7 @@
   </target>
 
   <!-- javac -->
-  <target name="compile" depends="prepare" description="�R���p�C��">
+  <target name="compile" depends="prepare" description="コンパイル">
     <javac debug="on" deprecation="on" destdir="${dir.build}">
       <classpath refid="project.class.path" />
       <include name="**/*.java" />

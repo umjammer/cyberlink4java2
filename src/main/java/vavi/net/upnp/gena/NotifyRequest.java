@@ -126,7 +126,7 @@ Debug.println("property: " + varName + " = " + value);
             bodyNode.addChildElement(propertysetNode);
     
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -164,7 +164,7 @@ Debug.println("property: " + varName + " = " + value);
             }
     
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

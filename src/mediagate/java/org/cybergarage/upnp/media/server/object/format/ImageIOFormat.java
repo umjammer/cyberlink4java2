@@ -70,7 +70,7 @@ public abstract class ImageIOFormat extends Header implements Format, FormatObje
 
     // TODO check owner document
     public List<Attr> getAttributeList() {
-        List<Attr> attrList = new ArrayList<Attr>();
+        List<Attr> attrList = new ArrayList<>();
         Document document = Util.getDocumentBuilder().newDocument();
 
         try {

@@ -44,7 +44,7 @@ public final class DeviceFactory {
             deviceSerdes.serialize(device, baos);
             return new String(baos.toByteArray());
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -59,11 +59,11 @@ public final class DeviceFactory {
 
             return (Node) Serdes.SerdesUtil.getXPath().evaluate("//" + Device.XMLNS + ":" + "device", document, XPathConstants.NODE);
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         } catch (SAXException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         } catch (XPathExpressionException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

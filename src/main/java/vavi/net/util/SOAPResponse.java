@@ -34,7 +34,7 @@ public abstract class SOAPResponse extends HttpContext {
             messageFactory = MessageFactory.newInstance();
             soapFactory = SOAPFactory.newInstance();
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
