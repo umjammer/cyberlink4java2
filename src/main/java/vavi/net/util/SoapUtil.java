@@ -89,7 +89,8 @@ Debug.println(">>>> POST " + request.getClass() + ": " + request.getRemoteHost()
             SOAPMessage soapMessage = request.getSoapMessage();
             soapMessage.writeTo(ps);
         } catch (SOAPException e) {
-            throw (IOException) new IOException().initCause(e);
+            socket.close();
+            throw new IOException(e);
         }
         ps.flush();
         // header: content-length

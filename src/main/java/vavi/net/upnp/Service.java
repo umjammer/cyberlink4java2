@@ -213,7 +213,7 @@ public class Service {
     }
 
     /** */
-    private List<Action> actionList = new ArrayList<Action>();
+    private List<Action> actionList = new ArrayList<>();
 
     /** actionList */
     public List<Action> getActionList() {
@@ -233,7 +233,7 @@ public class Service {
     }
 
     /** */
-    private List<StateVariable> stateVariableList = new ArrayList<StateVariable>();
+    private List<StateVariable> stateVariableList = new ArrayList<>();
 
     /** serviceStateTable */
     public List<StateVariable> getStateVariableList() {
@@ -289,7 +289,7 @@ public class Service {
     }
 
     /** SubscriberList */
-    private List<Subscriber> subscriberList = new ArrayList<Subscriber>();
+    private List<Subscriber> subscriberList = new ArrayList<>();
 
     /** */
     public List<Subscriber> getSubscriberList() {
@@ -299,7 +299,7 @@ public class Service {
 
     /** TODO */
     void cleanSubscriberList() {
-        List<Subscriber> copiedSubscriberList = new ArrayList<Subscriber>(subscriberList);
+        List<Subscriber> copiedSubscriberList = new ArrayList<>(subscriberList);
         for (Subscriber subscriber : copiedSubscriberList) {
             if (subscriber.isExpired()) {
                 removeSubscriber(subscriber);

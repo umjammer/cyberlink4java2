@@ -145,7 +145,7 @@ public class SubscriptionRequest extends HttpContext {
             setRemoteHost(url.getHost());
             setRemotePort(url.getPort());
         } catch (MalformedURLException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 

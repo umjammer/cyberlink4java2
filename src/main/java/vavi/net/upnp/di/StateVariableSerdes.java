@@ -97,7 +97,7 @@ public class StateVariableSerdes extends Singleton implements Serdes<StateVariab
             // TODO userData
 
         } catch (XPathExpressionException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 }

@@ -30,6 +30,9 @@ public @interface UPnPDevice {
     /** */
     class Util {
 
+        private Util() {
+        }
+
         /** */
         private static Log logger = LogFactory.getLog(Util.class); 
 
@@ -39,7 +42,7 @@ public @interface UPnPDevice {
                 UPnPDevice device = bean.getClass().getAnnotation(UPnPDevice.class);
                 return device.description();
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalStateException().initCause(e);
+                throw new IllegalStateException(e);
             }
         }
     }

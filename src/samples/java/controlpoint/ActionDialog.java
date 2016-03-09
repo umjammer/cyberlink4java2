@@ -64,8 +64,8 @@ public class ActionDialog extends JDialog {
 
         this.action = action;
 
-        inArgumentList = new ArrayList<Argument>();
-        inArgumentFieldList = new ArrayList<JComponent>();
+        inArgumentList = new ArrayList<>();
+        inArgumentFieldList = new ArrayList<>();
 
         JPanel argumentListPane = new JPanel();
 
@@ -79,7 +79,7 @@ public class ActionDialog extends JDialog {
             StateVariable stateVariable = argument.getAction().getService().getStateVariable(argument.getName());
             if (stateVariable != null) {
                 if (stateVariable.getAllowedValueList().size() > 0) {
-                    argumentField = new JComboBox(stateVariable.getAllowedValueList().toArray());
+                    argumentField = new JComboBox<>(stateVariable.getAllowedValueList().toArray());
                 } else if (stateVariable.getAllowedValueRange() != null) {
                     AllowedValueRange avr = stateVariable.getAllowedValueRange();
                     int min = Integer.parseInt(avr.getMinimum());
@@ -104,6 +104,7 @@ public class ActionDialog extends JDialog {
 
         okButton = new JButton("OK");
         okButton.addActionListener(new ActionListener() {
+            @SuppressWarnings("rawtypes")
             public void actionPerformed(ActionEvent event) {
                 result = true;
 

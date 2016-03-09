@@ -43,7 +43,7 @@ public interface Serdes<T, I, O> {
             try {
                 return xpath.evaluate(".//" + xmlns + ":" + localName, target);
             } catch (XPathExpressionException e) {
-                throw (RuntimeException) new IllegalStateException().initCause(e);
+                throw new IllegalStateException(e);
             }
         }
 
@@ -52,7 +52,7 @@ public interface Serdes<T, I, O> {
             try {
                 return (Boolean) xpath.evaluate(".//" + xmlns + ":" + localName, target, XPathConstants.BOOLEAN);
             } catch (XPathExpressionException e) {
-                throw (RuntimeException) new IllegalStateException().initCause(e);
+                throw new IllegalStateException(e);
             }
         }
     }

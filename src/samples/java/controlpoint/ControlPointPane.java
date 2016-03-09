@@ -194,7 +194,7 @@ public class ControlPointPane extends JPanel {
             iconSerdes.serialize(icon, node);
             iconTable = new TableModel(node);
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
         JScrollPane scrollPane = new JScrollPane();
         JTable table = new JTable(iconTable);
@@ -234,7 +234,7 @@ public class ControlPointPane extends JPanel {
             argumentSerdes.serialize(argument, node);
             argumentTable = new TableModel(node);
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
         JScrollPane scrollPane = new JScrollPane();
         JTable table = new JTable(argumentTable);

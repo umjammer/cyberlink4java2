@@ -76,7 +76,7 @@ public class ActionSerdes extends Singleton implements Serdes<Action, Node, Node
 
             // TODO userData
         } catch (XPathExpressionException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 }

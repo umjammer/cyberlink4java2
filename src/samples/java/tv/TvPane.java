@@ -84,11 +84,11 @@ public class TvPane extends JPanel { // MouseListener
     private Font timeFont = null;
 
     private Font getFont(Graphics g, int size) {
-        Font font = new Font(DEFAULT_FONT_NAME, Font.BOLD, size);
+        Font font = g.getFont();
         if (font != null) {
             return font;
         }
-        return g.getFont();
+        return new Font(DEFAULT_FONT_NAME, Font.BOLD, size);
     }
 
     private Font getFont(Graphics g) {

@@ -46,7 +46,7 @@ public abstract class SOAPRequest extends HttpContext {
             messageFactory = MessageFactory.newInstance();
             soapFactory = SOAPFactory.newInstance();
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -69,9 +69,9 @@ System.out.println("-------- request: " + is.available() + " bytes");
 soapMessage.writeTo(System.out);
 System.out.println("\n--------");
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalArgumentException().initCause(e);
+            throw new IllegalArgumentException(e);
         }
     }
 

@@ -13,20 +13,44 @@
     <name></name>
   </organization>
   <version>1.1.0</version>
-  <url>http://www.cybergarage.org/net/upnp/java/index.html</url>
-  <description>Java UPnP implementation</description>
+  <url>https://github.com/umjammer/cyberlink4java2</url>
+  <description>Java UPnP implementation
+
+Original
+
+    http://www.cybergarage.org/net/upnp/java/index.html
+</description>
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>6</source>
-          <target>6</target>
-          <encoding>Windows-31J</encoding>
+          <source>8</source>
+          <target>8</target>
+          <encoding>UTF-8</encoding>
         </configuration>
+        <version>3.3</version>
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>vavi-commons-mvn-repo</id>
+      <url>https://raw.github.com/umjammer/vavi-commons/mvn-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>vavi-util-screenscraping-mvn-repo</id>
+      <url>https://raw.github.com/umjammer/vavi-util-screenscraping/mvn-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
   <dependencies>
   	<dependency>
   		<groupId>javax.servlet</groupId>
@@ -38,7 +62,7 @@
   	<dependency>
   		<groupId>vavi</groupId>
   		<artifactId>vavi-commons</artifactId>
-  		<version>1.0.0</version>
+  		<version>1.0.4</version>
   		<type>jar</type>
   		<optional>false</optional>
   	</dependency>
@@ -59,22 +83,26 @@
   	<dependency>
   		<groupId>commons-dbutils</groupId>
   		<artifactId>commons-dbutils</artifactId>
-  		<version>1.1-dev</version>
-  		<type>jar</type>
-  		<optional>false</optional>
+  		<version>1.1</version>
   	</dependency>
   	<dependency>
   		<groupId>vavi</groupId>
   		<artifactId>vavi-commons-sandbox</artifactId>
-  		<version>0.3.0</version>
+  		<version>0.3.1</version>
   		<type>jar</type>
   		<optional>false</optional>
   	</dependency>
   	<dependency>
   		<groupId>vavi</groupId>
   		<artifactId>vavi-util-screenscraping</artifactId>
-  		<version>1.0.0</version>
+  		<version>1.0.1</version>
   		<optional>false</optional>
   	</dependency>
   </dependencies>
+  <scm>
+    <url>https://github.com/umjammer/cyberlink4java2</url>
+  </scm>
+  <issueManagement>
+    <url>https://github.com/umjammer/cyberlink4java2/issues</url>
+  </issueManagement>
 </project>

@@ -85,7 +85,7 @@ public class ActionRequest extends ControlRequest {
             bodyNode.addChildElement(actionNode);
     
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -138,7 +138,7 @@ public class ActionRequest extends ControlRequest {
     }
 
     /** */
-    private List<Argument> argumentList = new ArrayList<Argument>();
+    private List<Argument> argumentList = new ArrayList<>();
 
     /** */
     public List<Argument> getArgumentList() {

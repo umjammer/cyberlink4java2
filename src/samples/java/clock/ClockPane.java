@@ -72,11 +72,11 @@ public class ClockPane extends JPanel { // MouseListener
     private Font secondFont = null;
 
     private Font getFont(Graphics g, int size) {
-        Font font = new Font(DEFAULT_FONT_NAME, Font.PLAIN, size);
+        Font font = g.getFont();
         if (font != null) {
             return font;
         }
-        return g.getFont();
+        return new Font(DEFAULT_FONT_NAME, Font.PLAIN, size);
     }
 
     private Font getTimeFont(Graphics g) {

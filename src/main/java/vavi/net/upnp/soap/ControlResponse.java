@@ -134,7 +134,7 @@ public class ControlResponse extends SOAPResponse {
             bodyNode.addChildElement(faultNode);
 
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -165,9 +165,9 @@ Debug.println("response has no contents");
             soapMessage = SoapUtil.getSOAPMessage(headers, is);
 //System.out.println("\n--------");
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
 
         // when error see #super(HttpContext)
@@ -203,7 +203,7 @@ Debug.println("response has no contents");
             this.statusMessage = errorDescriptionNode.getValue();
             
         } catch (SOAPException e) {
-            throw (RuntimeException) new IllegalStateException().initCause(e);
+            throw new IllegalStateException(e);
         }
     }
 }

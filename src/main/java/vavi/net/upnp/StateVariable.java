@@ -138,7 +138,7 @@ Debug.println("not sendEvents");
     // ----
 
     /** */
-    private List<String> allowedValueList = new ArrayList<String>();
+    private List<String> allowedValueList = new ArrayList<>();
 
     /** AllowedValueList */
     public List<String> getAllowedValueList() {
@@ -179,7 +179,7 @@ Debug.println("not sendEvents");
     public void doNotify() throws IOException {
         service.cleanSubscriberList(); // TODO ???
 
-        List<Subscriber> copiedSubscriberList = new ArrayList<Subscriber>(service.getSubscriberList());
+        List<Subscriber> copiedSubscriberList = new ArrayList<>(service.getSubscriberList());
         for (Subscriber subscriber : copiedSubscriberList) {
             boolean result = subscriber.notify(this);
             if (result == false) {
